@@ -6,9 +6,11 @@
 			"import": "./dist/mjs/tailwindify.js"
 		},
 		"./transform": {
+			"import": "./dist/mjs/transform.js",
 			"require": "./dist/cjs/transform.js"
 		}
 	},
+	"main": "dist/mjs/tailwindify.js",
 	"module": "dist/mjs/tailwindify.js",
 	"scripts": {
 		"build": "rm -fr dist/* && tsc -p tsconfig.json && tsc -p tsconfig-cjs.json && ./fixup.sh",
@@ -17,8 +19,8 @@
 	},
 	"license": "ISC",
 	"devDependencies": {
-		"typescript": "^5.0.2",
-		"vite": "^4.2.1",
-		"vitest": "^0.29.7"
+		"typescript": "5.0.2",
+		"vite": "4.2.1",
+		"vitest": "0.29.7"
 	}
 }

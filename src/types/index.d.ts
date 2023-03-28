@@ -6,10 +6,10 @@ export type Replacers = Record<string, Replacer>;
 export type Screen = string;
 
 export type Config = {
+	replacers: Replacers;
 	defaultScreen?: Screen;
-	replacers?: Replacers;
 };
 
-export type Transform = (config?: Config) => TransformFn;
+export type Transform = (config: Config) => TransformFn;
 
 export type TransformFn = (content: string) => string;

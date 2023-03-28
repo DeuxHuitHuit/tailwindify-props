@@ -1,41 +1,31 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.svelte = exports.convertToTailwindClasses = exports.resolvePropValues = void 0;
-const generateClassesFromValues_1 = require("./utils/generateClassesFromValues");
-const camelToSnakeCase_1 = require("./utils/camelToSnakeCase");
+exports.svelte = exports.convertToTailwindClasses = void 0;
+const generateClassesFromValues_1 = require("./generateClassesFromValues");
 const constants_1 = require("./constants");
-/**
- * Transform typescript variables declaration to attribute syntax, so that
- * `const padding: PxUnit = '12|24';` becomes `padding="12|24";`
- */
-const resolvePropValues = (content) => {
-    return content.replace(constants_1.PROP_REGEXP, (...args) => {
-        const groups = args[args.length - 1];
-        return `${groups.prop}="${groups.value}"`;
-    });
-};
-exports.resolvePropValues = resolvePropValues;
 const convertToTailwindClasses = (content, replacers, defaultScreen) => {
-    return content.replace(constants_1.KEY_VALUES_REGEXP, (match, ...rest) => {
-        const { key, values } = rest[rest.length - 1];
-        if (!values) {
-            return match;
-        }
-        const replacer = replacers[key];
-        return (0, generateClassesFromValues_1.generateClassesFromValues)(values, (value) => {
-            if (typeof replacer === 'undefined') {
-                const kebabCaseKey = (0, camelToSnakeCase_1.camelToKebabCase)(key);
-                return constants_1.BASE_REPLACER.replace(/\$prop/g, kebabCaseKey).replace(/\$value/g, value);
+    return (Object.entries(replacers)
+        // replace all instances of each reducers
+        .reduce((content, [replacerKey, replacer]) => {
+        const replacerRegExp = new RegExp(`(${replacerKey})(?::\\s[a-z0-9<>_|\\s.]+)?\\s?([:=])\\s?['"](?<values>[^\\s]*)['"]`, 'gi');
+        return content.replace(replacerRegExp, (match, ...rest) => {
+            const { values } = rest[rest.length - 1];
+            if (!values) {
+                return match;
             }
-            if (typeof replacer === 'function') {
-                return replacer(value, key);
-            }
-            if (typeof replacer === 'string') {
-                return replacer.replace(/\$prop/g, key).replace(/\$value/g, value);
-            }
-            return value;
-        }, defaultScreen);
-    });
+            return (0, generateClassesFromValues_1.generateClassesFromValues)(values, (value) => {
+                if (typeof replacer === 'function') {
+                    return replacer(value, replacerKey);
+                }
+                if (typeof replacer === 'string') {
+                    return replacer
+                        .replace(/\$prop/g, replacerKey)
+                        .replace(/\$value/g, value);
+                }
+                return value;
+            }, defaultScreen);
+        });
+    }, content));
 };
 exports.convertToTailwindClasses = convertToTailwindClasses;
 /**
@@ -44,14 +34,11 @@ exports.convertToTailwindClasses = convertToTailwindClasses;
 const svelte = (config) => {
     const { replacers, defaultScreen } = config || {};
     return (content) => {
-        // Convert prop declarations into attributes
-        content = (0, exports.resolvePropValues)(content);
-        // Pass all converters on the resulting string
-        content = (0, exports.convertToTailwindClasses)(content, replacers || {}, defaultScreen || constants_1.DEFAULT_SCREEN);
-        // Restore Tailwind's own Svelte transform
-        // github.com/tailwindlabs/tailwindcss/blob/55653ba0041cf2806f236f00c59307b12f757385/src/jit/lib/expandTailwindAtRules.js#L23
-        content = content.replace(/(?:^|\s)class:/g, ' ');
-        return content;
+        const result = (0, exports.convertToTailwindClasses)(content, replacers || {}, defaultScreen || constants_1.DEFAULT_SCREEN)
+            // Restore Tailwind's own Svelte transform
+            // github.com/tailwindlabs/tailwindcss/blob/55653ba0041cf2806f236f00c59307b12f757385/src/jit/lib/expandTailwindAtRules.js#L23
+            .replace(/(?:^|\s)class:/g, ' ');
+        return result;
     };
 };
 exports.svelte = svelte;

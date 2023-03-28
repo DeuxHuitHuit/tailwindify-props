@@ -13,7 +13,13 @@ module.exports = {
 	content: {
 		files: ['src/**/*.svelte'],
 		transform: {
-			svelte: svelte()
+			svelte: svelte({
+				replacers: {
+					bg: 'bg-$value',
+					text: 'text-$value',
+					lineHeight: '6'
+				}
+			})
 		}
 	}
 };
@@ -122,7 +128,7 @@ The transform function accepts the following config object:
 
 ```ts
 type Config = {
-	replacers?: {
+	replacers: {
 		[key: string]: string | (value: string, prop: string) => string;
 	};
 	defaultScreen?: string;
@@ -131,23 +137,11 @@ type Config = {
 
 ### Replacers
 
-By default, Tailwindify generates class prefixes based on the prop key (like `text`, `bg`, `pt`, etc.) and appends the value to it. Camel case props are converted to kebab case (`alignItems` becomes `align-items`).
+Replacers correspond to the props you want to convert to Tailwind classes.
 
-You can customize this behavior with replacers.
+The key is the prop name.
 
-For example, let's say we have the following component:
-
-```svelte
-<script>
-	export let borderColor = 'green-500';
-</script>
-```
-
-The basic behavior will generate the class `border-color-green-500`, but we need it to be `border-green-500`.
-
-To change this, we can use the `replacers` property of the config object passed to the transform function.
-
-A replacer can either be a string or a function that returns a string. This allows you to format the class however you like. The `'$value'` part of the string will be replaced with the actual value.
+The value either be a string or a function that returns a string. This allows you to format the resulting class however you like. The `'$value'` part of the string will be replaced with the actual value.
 
 ```js
 module.exports = {
@@ -163,7 +157,7 @@ module.exports = {
 };
 ```
 
-You can even use custom values and multiple classes for the same key.
+You can even use custom values and multiple classes for the same prop name.
 
 ```js
 module.exports = {
