@@ -228,3 +228,68 @@ module.exports = {
 	}
 };
 ```
+
+## The tailwindify helper
+
+Doing string interpolation to generate our classes isn't that complicated when you have simple values. But a value something like this is more difficult to parse:
+
+```svelte
+<MyComponent padding="24|28|sm:32|lg:40" />
+```
+
+To make this easier, you can use `tailwindify` to generate the classes.
+
+
+```ts
+type Tailwindify = (
+	classPrefix: string | string[], 
+	values: string, 
+	defaultScreen: string
+) => string;
+```
+
+```svelte
+<script>
+import { tailwindify } from 'tailwindiy';
+
+export let padding = '24|28|sm:32|lg:40';
+</script>
+
+<div class="{tailwindify('p', padding)}"></div>
+```
+
+```html
+<div class="p-24 xs:p-28 sm:p-32 lg:p-40"></div>
+```
+
+You can generate multiple classes in the same function call:
+
+```svelte
+<script>
+import { tailwindify } from 'tailwindiy';
+
+export let size = '24|40';
+</script>
+
+<div class="{tailwindify(['w', 'h'], padding)}"></div>
+```
+
+```html
+<div class="w-24 h-24 xs:w-40 h-40"></div>
+```
+
+You can also specify a different default screen:
+
+```svelte
+<script>
+import { tailwindify } from 'tailwindiy';
+
+export let size = '24|40';
+</script>
+
+<div class="{tailwindify(['w', 'h'], padding, 'sm')}"></div>
+```
+
+```html
+<div class="w-24 h-24 sm:w-40 h-40"></div>
+```
