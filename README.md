@@ -141,7 +141,7 @@ Replacers correspond to the props you want to convert to Tailwind classes.
 
 The key is the prop name.
 
-The value either be a string or a function that returns a string. This allows you to format the resulting class however you like. The `'$value'` part of the string will be replaced with the actual value.
+The value can either be a string or a function that returns a string. This allows you to format the resulting class however you like. The `'$value'` part of the string will be replaced with the actual value.
 
 ```js
 module.exports = {
@@ -173,7 +173,7 @@ module.exports = {
 };
 ```
 
-If you need more customization, you can pass a function instead. You will get the value and the prop key as arguments, and you will be able to return the class you need.
+If you need more customization, you can pass a function instead. The function receives the value and the prop key as arguments and must return a string.
 
 ```js
 module.exports = {
@@ -182,6 +182,9 @@ module.exports = {
 			svelte: svelte({
 				replacers: {
 					mySpecialProp: (value, prop) => {
+						if (Number(value) > 5) {
+							return `custom-${value}`
+						}
 						return `${prop}_${value}`;
 					}
 				}
@@ -231,7 +234,7 @@ module.exports = {
 
 ## The tailwindify helper
 
-Doing string interpolation to generate our classes isn't that complicated when you have simple values. But a value something like this is more difficult to parse:
+Doing string interpolation to generate our classes isn't that complicated when you have simple values. But a value like this is more difficult to parse:
 
 ```svelte
 <MyComponent padding="24|28|sm:32|lg:40" />
@@ -275,7 +278,7 @@ export let size = '24|40';
 ```
 
 ```html
-<div class="w-24 h-24 xs:w-40 h-40"></div>
+<div class="w-24 h-24 xs:w-40 xs:h-40"></div>
 ```
 
 You can also specify a different default screen:
@@ -291,5 +294,5 @@ export let size = '24|40';
 ```
 
 ```html
-<div class="w-24 h-24 sm:w-40 h-40"></div>
+<div class="w-24 h-24 sm:w-40 sm:h-40"></div>
 ```
