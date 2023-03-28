@@ -1,0 +1,25 @@
+{
+	"name": "tailwindify",
+	"version": "1.0.0",
+	"exports": {
+		".": {
+			"import": "./dist/mjs/tailwindify.js"
+		},
+		"./transform": {
+			"require": "./dist/cjs/transform.js"
+		}
+	},
+	"main": "dist/cjs/transform.js",
+	"module": "dist/mjs/tailwindify.js",
+	"scripts": {
+		"build": "rm -fr dist/* && tsc -p tsconfig.json && tsc -p tsconfig-cjs.json && ./fixup.sh",
+		"test": "vitest run",
+		"test:watch": "vitest"
+	},
+	"license": "ISC",
+	"devDependencies": {
+		"typescript": "5.0.2",
+		"vite": "4.2.1",
+		"vitest": "0.29.7"
+	}
+}
