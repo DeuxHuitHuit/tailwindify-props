@@ -1,7 +1,7 @@
 import { Screen, Replacers, Transform } from './types';
-import { generateClassesFromValues } from './generateClassesFromValues';
+import { generateClassesFromValues } from './utils/generateClassesFromValues';
+import { camelToKebabCase } from './utils/camelToSnakeCase';
 import { BASE_REPLACER, DEFAULT_SCREEN, KEY_VALUES_REGEXP, PROP_REGEXP } from './constants';
-import { camelToKebabCase } from './camelToSnakeCase';
 
 /**
  * Transform typescript variables declaration to attribute syntax, so that

@@ -1,9 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.svelte = exports.convertToTailwindClasses = exports.resolvePropValues = void 0;
-const generateClassesFromValues_1 = require("./generateClassesFromValues");
+const generateClassesFromValues_1 = require("./utils/generateClassesFromValues");
+const camelToSnakeCase_1 = require("./utils/camelToSnakeCase");
 const constants_1 = require("./constants");
-const camelToSnakeCase_1 = require("./camelToSnakeCase");
 /**
  * Transform typescript variables declaration to attribute syntax, so that
  * `const padding: PxUnit = '12|24';` becomes `padding="12|24";`
