@@ -84,7 +84,7 @@ It also works with javascript/typescript objects and constants:
 	const lineHeight = '6';
 </script>
 
-<button class="{styles.bg} {styles.text} leading-{lineHeight}"> My button </button>
+<button class="bg-{styles.bg} text-{styles.text} leading-{lineHeight}"> My button </button>
 ```
 
 ```html
