@@ -1,0 +1,6 @@
+.nvmrc
+node_modules
+src/*
+test/*
+fixup.sh
+vite.config.js
