@@ -1,6 +1,6 @@
 {
 	"name": "tailwindify-props",
-	"version": "0.0.1",
+	"version": "1.0.0",
 	"exports": {
 		".": {
 			"import": "./dist/mjs/tailwindify.js"
@@ -17,7 +17,17 @@
 		"test": "vitest run",
 		"test:watch": "vitest"
 	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/DeuxHuitHuit/tailwindify-props.git"
+	},
+	"keywords": ["tailwind", "svelte"],
+	"author": "Deux Huit Huit",
 	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/DeuxHuitHuit/tailwindify-props/issues"
+	},
+	"homepage": "https://github.com/DeuxHuitHuit/tailwindify-props",
 	"devDependencies": {
 		"typescript": "5.0.2",
 		"vite": "4.2.1",

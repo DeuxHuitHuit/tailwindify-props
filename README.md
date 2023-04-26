@@ -1,4 +1,4 @@
-# Tailwindify
+# Tailwindify props
 
 Converts component and object properties to Tailwind classes.
 
