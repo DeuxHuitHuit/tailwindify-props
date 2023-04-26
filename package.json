@@ -1,6 +1,6 @@
 {
-	"name": "tailwindify",
-	"version": "1.0.0",
+	"name": "tailwindify-props",
+	"version": "0.0.1",
 	"exports": {
 		".": {
 			"import": "./dist/mjs/tailwindify.js"
@@ -17,7 +17,7 @@
 		"test": "vitest run",
 		"test:watch": "vitest"
 	},
-	"license": "ISC",
+	"license": "MIT",
 	"devDependencies": {
 		"typescript": "5.0.2",
 		"vite": "4.2.1",
