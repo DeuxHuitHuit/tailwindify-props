@@ -1,44 +1,9 @@
-import { Screen, Replacers, Transform } from './types';
-import { generateClassesFromValues } from './generateClassesFromValues';
+import { Transform } from './types';
 import { DEFAULT_SCREEN } from './constants';
-
-export const convertToTailwindClasses = (
-	content: string,
-	replacers: Replacers,
-	defaultScreen: Screen
-) => {
-	return (
-		Object.entries(replacers)
-			// replace all instances of each reducers
-			.reduce((content, [replacerKey, replacer]) => {
-				const replacerRegExp = new RegExp(
-					`(${replacerKey})(?::\\s[a-z0-9<>_|\\s.]+)?\\s?([:=])\\s?['"](?<values>[^\\s]*)['"]`,
-					'gi'
-				);
-				return content.replace(replacerRegExp, (match, ...rest) => {
-					const { values } = rest[rest.length - 1] as { values: string };
-					if (!values) {
-						return match;
-					}
-					return generateClassesFromValues(
-						values,
-						(value: string) => {
-							if (typeof replacer === 'function') {
-								return replacer(value, replacerKey);
-							}
-							if (typeof replacer === 'string') {
-								return replacer
-									.replace(/\$prop/g, replacerKey)
-									.replace(/\$value/g, value);
-							}
-							return value;
-						},
-						defaultScreen
-					);
-				});
-			}, content)
-	);
-};
+import { resolveTypesScriptAttributesValues } from './helpers/resolveTypesScriptAttributesValues';
+import { resolveJavaScriptObjectAttributesValues } from './helpers/resolveJavaScriptObjectAttributesValues';
+import { duplicateResponsiveAttributes } from 'helpers/duplicateResponsiveAttributes';
+import { convertToTailwindClasses } from 'helpers/convertToTailwindClasses';
 
 /**
  * Replaces svelte properties with their tailwind compatible syntax.
@@ -46,6 +11,13 @@ export const convertToTailwindClasses = (
 export const svelte: Transform = (config) => {
 	const { replacers, defaultScreen } = config || {};
 	return (content) => {
+		// Convert TypeScript declarations into attributes
+		content = resolveTypesScriptAttributesValues(content);
+		// Convert JavaScript object keys into attributes
+		content = resolveJavaScriptObjectAttributesValues(content);
+		// Convert properties with responsive values into duplicates
+		content = duplicateResponsiveAttributes(content);
+		// Pass all converters on the resulting string
 		const result = convertToTailwindClasses(
 			content,
 			replacers || {},
