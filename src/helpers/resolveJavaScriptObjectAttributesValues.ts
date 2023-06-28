@@ -1,4 +1,4 @@
-const JS_OBJECT_ATTR_REGEXP = /([a-zA-Z0-9]+): '([^']*)'(,|\s|$)/g;
+const JS_OBJECT_ATTR_REGEXP = /([a-zA-Z0-9]+): ['`"]([^'`"]*)['`"](,|\s|$)/g;
 
 /**
  * Transform javascript object keys declaration to attribute syntax, so that

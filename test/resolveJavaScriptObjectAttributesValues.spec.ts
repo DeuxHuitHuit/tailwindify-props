@@ -12,8 +12,8 @@ describe('resolveJavaScriptObjectAttributesValues()', () => {
 	test('multiline line test', () => {
 		const res = resolveJavaScriptObjectAttributesValues(
 			` {
-			borderColor: 'black',
-			padding: '4',
+			borderColor: \`black\`,
+			padding: "4",
 			cols: '12'
 		} `
 		);
