@@ -29,8 +29,8 @@
 	},
 	"homepage": "https://github.com/DeuxHuitHuit/tailwindify-props",
 	"devDependencies": {
-		"typescript": "5.0.2",
-		"vite": "4.2.1",
-		"vitest": "0.29.7"
+		"typescript": "5.1.5",
+		"vite": "4.3.9",
+		"vitest": "0.32.2"
 	}
 }
