@@ -21,7 +21,10 @@
 		"type": "git",
 		"url": "https://github.com/DeuxHuitHuit/tailwindify-props.git"
 	},
-	"keywords": ["tailwind", "svelte"],
+	"keywords": [
+		"tailwind",
+		"svelte"
+	],
 	"author": "Deux Huit Huit",
 	"license": "MIT",
 	"bugs": {
@@ -29,6 +32,7 @@
 	},
 	"homepage": "https://github.com/DeuxHuitHuit/tailwindify-props",
 	"devDependencies": {
+		"prettier": "^2.8.8",
 		"typescript": "5.1.5",
 		"vite": "4.3.9",
 		"vitest": "0.32.2"
