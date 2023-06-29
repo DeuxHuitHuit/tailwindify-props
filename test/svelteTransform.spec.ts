@@ -52,16 +52,20 @@ describe('svelte()', () => {
 		const res = svelte()(`
 			export let textColor = 'red';
 			export let width = '24';
+			export let padding = '32|xs:56';
 
 			const colorClass = tailwindify('text', textColor);
 			const widthClass = tailwindify('w', width);
+			const paddingClasses = tailwindify(["pr", "pt"], padding);
 		`);
 		expect(res).toBe(`
 			export text-red
 			export w-24
+			export pr-32 pt-32 xs:pr-56 xs:pt-56
 
 			const colorClass = tailwindify('text', textColor);
 			const widthClass = tailwindify('w', width);
+			const paddingClasses = tailwindify(["pr", "pt"], padding);
 		`);
 	});
 });
