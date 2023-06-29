@@ -6,7 +6,7 @@ describe('resolveJavaScriptObjectAttributesValues()', () => {
 		const res = resolveJavaScriptObjectAttributesValues(
 			` { borderColor: 'black', padding: '4' } `
 		);
-		expect(res).toBe(' {  borderColor="black" ,  padding="4"  } ');
+		expect(res).toBe(' { borderColor="black", padding="4" } ');
 	});
 
 	test('multiline line test', () => {
@@ -18,9 +18,9 @@ describe('resolveJavaScriptObjectAttributesValues()', () => {
 		} `
 		);
 		expect(res).toBe(` {
-			 borderColor="black" ,
-			 padding="4" ,
-			 cols="12" 
+			borderColor="black",
+			padding="4",
+			cols="12"
 		} `);
 	});
 });

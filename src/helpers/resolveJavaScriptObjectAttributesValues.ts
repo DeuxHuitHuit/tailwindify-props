@@ -7,5 +7,5 @@ const JS_OBJECT_ATTR_REGEXP = /([a-zA-Z0-9]+): ['`"]([^'`"]*)['`"](,|\s|$)/g;
  * @returns string
  */
 export const resolveJavaScriptObjectAttributesValues = (content: string) => {
-	return content.replace(JS_OBJECT_ATTR_REGEXP, ' $1="$2" $3');
+	return content.replace(JS_OBJECT_ATTR_REGEXP, '$1="$2"$3');
 };

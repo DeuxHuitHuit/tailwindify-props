@@ -2,7 +2,7 @@ import { Transform } from './types';
 import { DEFAULT_SCREEN } from './constants';
 import { resolveTypesScriptAttributesValues } from './helpers/resolveTypesScriptAttributesValues';
 import { resolveJavaScriptObjectAttributesValues } from './helpers/resolveJavaScriptObjectAttributesValues';
-import { convertToTailwindClasses } from 'helpers/convertToTailwindClasses';
+import { convertToTailwindClasses } from './helpers/convertToTailwindClasses';
 
 /**
  * Replaces svelte properties with their tailwind compatible syntax.
