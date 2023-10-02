@@ -1,44 +1,33 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.svelte = exports.convertToTailwindClasses = void 0;
-const generateClassesFromValues_1 = require("./generateClassesFromValues");
+exports.svelte = void 0;
 const constants_1 = require("./constants");
-const convertToTailwindClasses = (content, replacers, defaultScreen) => {
-    return (Object.entries(replacers)
-        // replace all instances of each reducers
-        .reduce((content, [replacerKey, replacer]) => {
-        const replacerRegExp = new RegExp(`(${replacerKey})(?::\\s[a-z0-9<>_|\\s.]+)?\\s?([:=])\\s?['"](?<values>[^\\s]*)['"]`, 'gi');
-        return content.replace(replacerRegExp, (match, ...rest) => {
-            const { values } = rest[rest.length - 1];
-            if (!values) {
-                return match;
-            }
-            return (0, generateClassesFromValues_1.generateClassesFromValues)(values, (value) => {
-                if (typeof replacer === 'function') {
-                    return replacer(value, replacerKey);
-                }
-                if (typeof replacer === 'string') {
-                    return replacer
-                        .replace(/\$prop/g, replacerKey)
-                        .replace(/\$value/g, value);
-                }
-                return value;
-            }, defaultScreen);
-        });
-    }, content));
-};
-exports.convertToTailwindClasses = convertToTailwindClasses;
+const extractTailwindifiedProps_1 = require("./helpers/extractTailwindifiedProps");
+const mergeUnknownPropsIntoReplacers_1 = require("./helpers/mergeUnknownPropsIntoReplacers");
+const resolveTypesScriptAttributesValues_1 = require("./helpers/resolveTypesScriptAttributesValues");
+const resolveJavaScriptObjectAttributesValues_1 = require("./helpers/resolveJavaScriptObjectAttributesValues");
+const convertToTailwindClasses_1 = require("./helpers/convertToTailwindClasses");
 /**
  * Replaces svelte properties with their tailwind compatible syntax.
  */
 const svelte = (config) => {
-    const { replacers, defaultScreen } = config || {};
+    const replacers = (config === null || config === void 0 ? void 0 : config.replacers) || {};
+    const defaultScreen = (config === null || config === void 0 ? void 0 : config.defaultScreen) || constants_1.DEFAULT_SCREEN;
     return (content) => {
-        const result = (0, exports.convertToTailwindClasses)(content, replacers || {}, defaultScreen || constants_1.DEFAULT_SCREEN)
-            // Restore Tailwind's own Svelte transform
-            // github.com/tailwindlabs/tailwindcss/blob/55653ba0041cf2806f236f00c59307b12f757385/src/jit/lib/expandTailwindAtRules.js#L23
-            .replace(/(?:^|\s)class:/g, ' ');
-        return result;
+        // Extract prop names from tailwindify
+        const props = (0, extractTailwindifiedProps_1.extractTailwindifiedProps)(content);
+        // Merge with replacers
+        (0, mergeUnknownPropsIntoReplacers_1.mergeUnknownPropsIntoReplacers)(replacers, props);
+        // Convert TypeScript declarations into attributes
+        content = (0, resolveTypesScriptAttributesValues_1.resolveTypesScriptAttributesValues)(content);
+        // Convert JavaScript object keys into attributes
+        content = (0, resolveJavaScriptObjectAttributesValues_1.resolveJavaScriptObjectAttributesValues)(content);
+        // Pass all converters on the resulting string
+        content = (0, convertToTailwindClasses_1.convertToTailwindClasses)(content, replacers, defaultScreen);
+        // Restore Tailwind's own Svelte transform
+        // github.com/tailwindlabs/tailwindcss/blob/55653ba0041cf2806f236f00c59307b12f757385/src/jit/lib/expandTailwindAtRules.js#L23
+        content = content.replace(/(?:^|\s)class:/g, ' ');
+        return content;
     };
 };
 exports.svelte = svelte;

@@ -1,5 +1,4 @@
-import { Screen, Replacers, Transform } from './types';
-export declare const convertToTailwindClasses: (content: string, replacers: Replacers, defaultScreen: Screen) => string;
+import { Transform } from './types';
 /**
  * Replaces svelte properties with their tailwind compatible syntax.
  */

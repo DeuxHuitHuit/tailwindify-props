@@ -1,5 +1,5 @@
 import { DEFAULT_SCREEN } from './constants';
-import { generateClassesFromValues } from './generateClassesFromValues';
+import { generateClassesFromValues } from './helpers/generateClassesFromValues';
 export const tailwindify = (classPrefix, values, defaultScreen = DEFAULT_SCREEN) => {
     return generateClassesFromValues(values, (value) => {
         return Array.isArray(classPrefix)

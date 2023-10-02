@@ -1,7 +1,12 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.generateClassesFromValues = void 0;
-const generateClassesFromValues = (values, getSingleValue, defaultScreen) => {
+/**
+ * Parses a values string, passes the split parts one at a time to the getSingleValue callback
+ * and returns the resulting className string.
+ * @param values
+ * @param getSingleValue
+ * @param defaultScreen
+ * @returns The generated classes from the values string.
+ */
+export const generateClassesFromValues = (values, getSingleValue, defaultScreen) => {
     if (!values) {
         return '';
     }
@@ -19,4 +24,3 @@ const generateClassesFromValues = (values, getSingleValue, defaultScreen) => {
     })
         .join(' ');
 };
-exports.generateClassesFromValues = generateClassesFromValues;

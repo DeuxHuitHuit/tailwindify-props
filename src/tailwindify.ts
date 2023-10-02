@@ -1,6 +1,6 @@
 import { Screen } from './types';
 import { DEFAULT_SCREEN } from './constants';
-import { generateClassesFromValues } from './generateClassesFromValues';
+import { generateClassesFromValues } from './helpers/generateClassesFromValues';
 
 export const tailwindify = (
 	classPrefix: string | string[],
