@@ -6,8 +6,7 @@
 			"import": "./dist/mjs/tailwindify.js"
 		},
 		"./transform": {
-			"import": "./dist/mjs/transform.js",
-			"require": "./dist/cjs/transform.js"
+			"import": "./dist/mjs/transform.js"
 		}
 	},
 	"type": "module",
