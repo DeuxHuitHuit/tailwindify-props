@@ -4,4 +4,4 @@ import { ExtractedTailwindifiedProps, Replacers } from 'types';
  * @param {Record<string, string>} props
  * @returns undefined
  */
-export declare const mergeUnknownPropsIntoReplacers: (replacers: Replacers, props: ExtractedTailwindifiedProps) => void;
+export declare const mergeUnknownPropsIntoReplacers: (replacers: Replacers, props: ExtractedTailwindifiedProps) => Replacers;

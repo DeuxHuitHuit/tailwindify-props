@@ -8,18 +8,20 @@ exports.mergeUnknownPropsIntoReplacers = void 0;
  */
 const mergeUnknownPropsIntoReplacers = (replacers, props) => {
     if (!props) {
-        return;
+        return replacers;
     }
+    const customReplacers = {};
     Object.entries(props).forEach(([key, prefix]) => {
-        if (!!replacers[key]) {
+        if (!!customReplacers[key]) {
             return;
         }
         if (Array.isArray(prefix)) {
-            replacers[key] = prefix.map((p) => `${p}-$value`).join(' ');
+            customReplacers[key] = prefix.map((p) => `${p}-$value`).join(' ');
         }
         else {
-            replacers[key] = `${prefix}-$value`;
+            customReplacers[key] = `${prefix}-$value`;
         }
     });
+    return Object.assign(Object.assign({}, replacers), customReplacers);
 };
 exports.mergeUnknownPropsIntoReplacers = mergeUnknownPropsIntoReplacers;

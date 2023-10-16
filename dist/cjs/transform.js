@@ -11,13 +11,13 @@ const convertToTailwindClasses_1 = require("./helpers/convertToTailwindClasses")
  * Replaces svelte properties with their tailwind compatible syntax.
  */
 const svelte = (config) => {
-    const replacers = (config === null || config === void 0 ? void 0 : config.replacers) || {};
+    const configReplacers = (config === null || config === void 0 ? void 0 : config.replacers) || {};
     const defaultScreen = (config === null || config === void 0 ? void 0 : config.defaultScreen) || constants_1.DEFAULT_SCREEN;
     return (content) => {
         // Extract prop names from tailwindify
         const props = (0, extractTailwindifiedProps_1.extractTailwindifiedProps)(content);
         // Merge with replacers
-        (0, mergeUnknownPropsIntoReplacers_1.mergeUnknownPropsIntoReplacers)(replacers, props);
+        const replacers = (0, mergeUnknownPropsIntoReplacers_1.mergeUnknownPropsIntoReplacers)(configReplacers, props);
         // Convert TypeScript declarations into attributes
         content = (0, resolveTypesScriptAttributesValues_1.resolveTypesScriptAttributesValues)(content);
         // Convert JavaScript object keys into attributes
