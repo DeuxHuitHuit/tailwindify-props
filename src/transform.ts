@@ -1,10 +1,10 @@
-import { Transform } from './types';
-import { DEFAULT_SCREEN } from './constants';
-import { extractTailwindifiedProps } from './helpers/extractTailwindifiedProps';
-import { mergeUnknownPropsIntoReplacers } from './helpers/mergeUnknownPropsIntoReplacers';
-import { resolveTypesScriptAttributesValues } from './helpers/resolveTypesScriptAttributesValues';
-import { resolveJavaScriptObjectAttributesValues } from './helpers/resolveJavaScriptObjectAttributesValues';
-import { convertToTailwindClasses } from './helpers/convertToTailwindClasses';
+import { Transform } from './types.js';
+import { DEFAULT_SCREEN } from './constants.js';
+import { extractTailwindifiedProps } from './helpers/extractTailwindifiedProps.js';
+import { mergeUnknownPropsIntoReplacers } from './helpers/mergeUnknownPropsIntoReplacers.js';
+import { resolveTypesScriptAttributesValues } from './helpers/resolveTypesScriptAttributesValues.js';
+import { resolveJavaScriptObjectAttributesValues } from './helpers/resolveJavaScriptObjectAttributesValues.js';
+import { convertToTailwindClasses } from './helpers/convertToTailwindClasses.js';
 
 const transform: Transform = (config) => {
 	const configReplacers = config?.replacers || {};

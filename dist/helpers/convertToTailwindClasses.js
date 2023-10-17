@@ -1,5 +1,5 @@
-import { BASE_REPLACER } from '../constants';
-import { generateClassesFromValues } from './generateClassesFromValues';
+import { BASE_REPLACER } from '../constants.js';
+import { generateClassesFromValues } from './generateClassesFromValues.js';
 const RESP_ATTR_REGEXP = /(?<attribute>[a-zA-Z0-9]+)="(?<values>[^"]+)"/g;
 /**
  *

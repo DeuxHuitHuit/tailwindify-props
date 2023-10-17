@@ -3,10 +3,12 @@
 	"version": "2.0.1",
 	"exports": {
 		".": {
-			"import": "./dist/mjs/tailwindify.js"
+			"types": "./dist/tailwindify.d.ts",
+			"import": "./dist/tailwindify.js"
 		},
 		"./transform": {
-			"import": "./dist/mjs/transform.js"
+			"types": "./dist/transform.d.ts",
+			"import": "./dist/transform.js"
 		}
 	},
 	"type": "module",
@@ -30,9 +32,9 @@
 	},
 	"homepage": "https://github.com/DeuxHuitHuit/tailwindify-props",
 	"devDependencies": {
-		"prettier": "^2.8.8",
-		"typescript": "5.1.5",
-		"vite": "4.3.9",
-		"vitest": "0.32.2"
+		"prettier": "3.0.3",
+		"typescript": "5.2.2",
+		"vite": "4.4.11",
+		"vitest": "0.34.6"
 	}
 }

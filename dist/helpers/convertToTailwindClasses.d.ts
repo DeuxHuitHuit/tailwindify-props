@@ -1,4 +1,4 @@
-import { Screen, Replacers } from '../types';
+import { Screen, Replacers } from '../types.js';
 /**
  *
  * Convert responsive attributes to Tailwind classes, so that:

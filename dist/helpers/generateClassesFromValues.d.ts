@@ -1,4 +1,4 @@
-import { Screen } from 'types';
+import { Screen } from 'types.js';
 type Values = string;
 type GetSingleValue = (value: string) => string;
 /**

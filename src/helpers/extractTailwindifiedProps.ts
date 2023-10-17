@@ -1,4 +1,4 @@
-import { ExtractedTailwindifiedProps, ExtractedTailwindifiedPropsPrefix } from '../types';
+import { ExtractedTailwindifiedProps, ExtractedTailwindifiedPropsPrefix } from '../types.js';
 
 const TAILWINDIFY_CALL_REGEXP = () =>
 	/tailwindify\(\[?((?:['"`][A-z_-]+['"`],?\s?)+)\]?,\s?([A-z0-9\_]+)\)/g;

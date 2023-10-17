@@ -1,4 +1,4 @@
-import { Transform } from './types';
+import { Transform } from './types.js';
 /**
  * Replaces typescript variables and objects with a tailwind compatible syntax.
  */

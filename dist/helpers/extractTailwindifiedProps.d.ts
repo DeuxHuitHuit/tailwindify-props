@@ -1,4 +1,4 @@
-import { ExtractedTailwindifiedProps } from '../types';
+import { ExtractedTailwindifiedProps } from '../types.js';
 /**
  * Looks for calls to tailwindify()
  * and extracts the prop and prefix name.
