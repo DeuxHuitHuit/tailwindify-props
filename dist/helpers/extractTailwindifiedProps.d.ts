@@ -1,6 +1,6 @@
 import { ExtractedTailwindifiedProps } from '../types';
 /**
- * Looks for calls to tailwindify()/tailwindifyWithMin()/tailwindifyAspectRatio()
+ * Looks for calls to tailwindify()
  * and extracts the prop and prefix name.
  * @param {string} content
  * @return Record<string, string>
