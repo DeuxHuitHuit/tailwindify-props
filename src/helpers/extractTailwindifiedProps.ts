@@ -1,4 +1,4 @@
-import { ExtractedTailwindifiedProps, ExtractedTailwindifiedPropsPrefix } from '../types';
+import { ExtractedTailwindifiedProps, ExtractedTailwindifiedPropsPrefix } from '../types.js';
 
 const TAILWINDIFY_CALL_REGEXP = () =>
 	/tailwindify\(\[?((?:['"`][A-z_-]+['"`],?\s?)+)\]?,\s?([A-z0-9\_]+)\)/g;
@@ -22,7 +22,7 @@ const processPrefix = (prefix: string) => {
 };
 
 /**
- * Looks for calls to tailwindify()/tailwindifyWithMin()/tailwindifyAspectRatio()
+ * Looks for calls to tailwindify()
  * and extracts the prop and prefix name.
  * @param {string} content
  * @return Record<string, string>

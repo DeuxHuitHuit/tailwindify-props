@@ -1,4 +1,4 @@
-import { ExtractedTailwindifiedProps, Replacers } from 'types';
+import { ExtractedTailwindifiedProps, Replacers } from '../types.js';
 
 /**
  * Merges props into the global replacer dictionary.
