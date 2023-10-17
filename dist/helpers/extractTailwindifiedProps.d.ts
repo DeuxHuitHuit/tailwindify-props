@@ -6,3 +6,4 @@ import { ExtractedTailwindifiedProps } from '../types.js';
  * @return Record<string, string>
  */
 export declare const extractTailwindifiedProps: (content: string) => ExtractedTailwindifiedProps;
+//# sourceMappingURL=extractTailwindifiedProps.d.ts.map

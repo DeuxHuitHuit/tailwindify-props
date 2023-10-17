@@ -11,3 +11,4 @@ export const tailwindify = (classPrefix, values, defaultScreen = DEFAULT_SCREEN)
             : `${classPrefix}-${value}`;
     }, defaultScreen);
 };
+//# sourceMappingURL=tailwindify.js.map

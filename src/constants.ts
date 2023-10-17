@@ -1,4 +1,4 @@
-import { Replacer, Screen } from 'types.js';
+import { Screen, Replacer } from './types.js';
 
 export const DEFAULT_SCREEN: Screen = 'xs';
 

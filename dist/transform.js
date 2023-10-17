@@ -42,3 +42,4 @@ export const svelte = (config) => {
         return content;
     };
 };
+//# sourceMappingURL=transform.js.map

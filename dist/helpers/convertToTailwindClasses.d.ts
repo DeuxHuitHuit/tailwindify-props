@@ -11,3 +11,4 @@ import { Screen, Replacers } from '../types.js';
  * @returns
  */
 export declare const convertToTailwindClasses: (content: string, replacers: Replacers, defaultScreen: Screen) => string;
+//# sourceMappingURL=convertToTailwindClasses.d.ts.map

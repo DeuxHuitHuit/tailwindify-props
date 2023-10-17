@@ -30,3 +30,4 @@ export const convertToTailwindClasses = (content, replacers, defaultScreen) => {
         }, defaultScreen);
     });
 };
+//# sourceMappingURL=convertToTailwindClasses.js.map

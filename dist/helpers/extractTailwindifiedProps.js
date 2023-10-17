@@ -35,3 +35,4 @@ export const extractTailwindifiedProps = (content) => {
     }
     return props;
 };
+//# sourceMappingURL=extractTailwindifiedProps.js.map
