@@ -5,10 +5,10 @@
 	"exports": {
 		".": "./dist/tailwindify.js",
 		"./transform": "./dist/transform.js",
-		"./types": "./dist/types.js"
+		"./types": "./dist/types.d.ts"
 	},
 	"scripts": {
-		"build": "rm -fr dist/* && tsc",
+		"build": "rm -fr dist/* lib/* && tsc && rollup -c",
 		"test": "vitest run",
 		"test:watch": "vitest",
 		"prepack": "npm run build"
@@ -29,6 +29,7 @@
 	"homepage": "https://github.com/DeuxHuitHuit/tailwindify-props",
 	"devDependencies": {
 		"prettier": "3.0.3",
+		"rollup": "4.1.4",
 		"typescript": "5.2.2",
 		"vite": "4.4.11",
 		"vitest": "0.34.6"
