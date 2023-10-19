@@ -4,12 +4,14 @@
 	"type": "module",
 	"exports": {
 		".": "./dist/tailwindify.js",
-		"./transform": "./dist/transform.js"
+		"./transform": "./dist/transform.js",
+		"./types": "./dist/types.js"
 	},
 	"scripts": {
 		"build": "rm -fr dist/* && tsc",
 		"test": "vitest run",
-		"test:watch": "vitest"
+		"test:watch": "vitest",
+		"prepack": "npm run build"
 	},
 	"repository": {
 		"type": "git",

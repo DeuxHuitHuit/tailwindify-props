@@ -1,5 +1,5 @@
-import { DEFAULT_SCREEN } from './constants.js';
-import { generateClassesFromValues } from './helpers/generateClassesFromValues.js';
+import { DEFAULT_SCREEN } from './constants';
+import { generateClassesFromValues } from './helpers/generateClassesFromValues';
 export const tailwindify = (classPrefix, values, defaultScreen = DEFAULT_SCREEN) => {
     return generateClassesFromValues(values, (value) => {
         return Array.isArray(classPrefix)
@@ -11,4 +11,3 @@ export const tailwindify = (classPrefix, values, defaultScreen = DEFAULT_SCREEN)
             : `${classPrefix}-${value}`;
     }, defaultScreen);
 };
-//# sourceMappingURL=tailwindify.js.map

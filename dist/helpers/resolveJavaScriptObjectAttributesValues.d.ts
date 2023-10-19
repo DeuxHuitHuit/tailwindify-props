@@ -5,4 +5,3 @@
  * @returns string
  */
 export declare const resolveJavaScriptObjectAttributesValues: (content: string) => string;
-//# sourceMappingURL=resolveJavaScriptObjectAttributesValues.d.ts.map

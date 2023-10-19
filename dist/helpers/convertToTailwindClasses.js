@@ -1,5 +1,5 @@
-import { BASE_REPLACER } from '../constants.js';
-import { generateClassesFromValues } from './generateClassesFromValues.js';
+import { BASE_REPLACER } from '../constants';
+import { generateClassesFromValues } from './generateClassesFromValues';
 const RESP_ATTR_REGEXP = /(?<attribute>[a-zA-Z0-9]+)="(?<values>[^"]+)"/g;
 /**
  *
@@ -30,4 +30,3 @@ export const convertToTailwindClasses = (content, replacers, defaultScreen) => {
         }, defaultScreen);
     });
 };
-//# sourceMappingURL=convertToTailwindClasses.js.map

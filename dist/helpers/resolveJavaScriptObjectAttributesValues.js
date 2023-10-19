@@ -8,4 +8,3 @@ const JS_OBJECT_ATTR_REGEXP = /([a-zA-Z0-9]+): ['`"]([^'`"]*)['`"](,|\s|$)/g;
 export const resolveJavaScriptObjectAttributesValues = (content) => {
     return content.replace(JS_OBJECT_ATTR_REGEXP, '$1="$2"$3');
 };
-//# sourceMappingURL=resolveJavaScriptObjectAttributesValues.js.map

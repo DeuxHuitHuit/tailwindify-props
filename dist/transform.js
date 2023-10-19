@@ -1,9 +1,9 @@
-import { DEFAULT_SCREEN } from './constants.js';
-import { extractTailwindifiedProps } from './helpers/extractTailwindifiedProps.js';
-import { mergeUnknownPropsIntoReplacers } from './helpers/mergeUnknownPropsIntoReplacers.js';
-import { resolveTypesScriptAttributesValues } from './helpers/resolveTypesScriptAttributesValues.js';
-import { resolveJavaScriptObjectAttributesValues } from './helpers/resolveJavaScriptObjectAttributesValues.js';
-import { convertToTailwindClasses } from './helpers/convertToTailwindClasses.js';
+import { DEFAULT_SCREEN } from './constants';
+import { extractTailwindifiedProps } from './helpers/extractTailwindifiedProps';
+import { mergeUnknownPropsIntoReplacers } from './helpers/mergeUnknownPropsIntoReplacers';
+import { resolveTypesScriptAttributesValues } from './helpers/resolveTypesScriptAttributesValues';
+import { resolveJavaScriptObjectAttributesValues } from './helpers/resolveJavaScriptObjectAttributesValues';
+import { convertToTailwindClasses } from './helpers/convertToTailwindClasses';
 const transform = (config) => {
     const configReplacers = config?.replacers || {};
     const defaultScreen = config?.defaultScreen || DEFAULT_SCREEN;
@@ -42,4 +42,3 @@ export const svelte = (config) => {
         return content;
     };
 };
-//# sourceMappingURL=transform.js.map

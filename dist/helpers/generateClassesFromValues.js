@@ -24,4 +24,3 @@ export const generateClassesFromValues = (values, getSingleValue, defaultScreen)
     })
         .join(' ');
 };
-//# sourceMappingURL=generateClassesFromValues.js.map

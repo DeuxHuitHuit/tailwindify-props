@@ -1,4 +1,4 @@
-import { Screen } from '../types.js';
+import { Screen } from '../types';
 type Values = string;
 type GetSingleValue = (value: string) => string;
 /**
@@ -11,4 +11,3 @@ type GetSingleValue = (value: string) => string;
  */
 export declare const generateClassesFromValues: (values: Values, getSingleValue: GetSingleValue, defaultScreen: Screen) => string;
 export {};
-//# sourceMappingURL=generateClassesFromValues.d.ts.map

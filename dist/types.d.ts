@@ -10,4 +10,3 @@ export type Config = {
 };
 export type Transform = (config?: Config) => TransformFn;
 export type TransformFn = (content: string) => string;
-//# sourceMappingURL=types.d.ts.map
