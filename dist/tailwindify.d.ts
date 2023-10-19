@@ -1,3 +1,2 @@
-import { Screen } from './types.js';
+import { Screen } from './types';
 export declare const tailwindify: (classPrefix: string | string[], values: string, defaultScreen?: Screen) => string;
-//# sourceMappingURL=tailwindify.d.ts.map

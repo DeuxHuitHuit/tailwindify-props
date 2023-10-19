@@ -8,4 +8,3 @@ const TS_ATTR_REGEXP = /(let|const) ([a-zA-Z0-9_]+)(?:: ([a-zA-Z0-9<>_\. \|]+))?
 export const resolveTypesScriptAttributesValues = (content) => {
     return content.replace(TS_ATTR_REGEXP, '$2="$4"');
 };
-//# sourceMappingURL=resolveTypesScriptAttributesValues.js.map

@@ -4,7 +4,8 @@
 	"type": "module",
 	"exports": {
 		".": "./dist/tailwindify.js",
-		"./transform": "./dist/transform.js"
+		"./transform": "./dist/transform.js",
+		"./types": "./dist/types.js"
 	},
 	"scripts": {
 		"build": "rm -fr dist/* && tsc",

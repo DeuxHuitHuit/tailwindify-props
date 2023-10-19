@@ -1,4 +1,4 @@
-import { ExtractedTailwindifiedProps } from '../types.js';
+import { ExtractedTailwindifiedProps } from '../types';
 /**
  * Looks for calls to tailwindify()
  * and extracts the prop and prefix name.
@@ -6,4 +6,3 @@ import { ExtractedTailwindifiedProps } from '../types.js';
  * @return Record<string, string>
  */
 export declare const extractTailwindifiedProps: (content: string) => ExtractedTailwindifiedProps;
-//# sourceMappingURL=extractTailwindifiedProps.d.ts.map
