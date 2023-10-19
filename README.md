@@ -295,7 +295,7 @@ import { tailwindify } from 'tailwindify-props';
 export let size = '24|40';
 </script>
 
-<div class="{tailwindify(['w', 'h'], padding)}"></div>
+<div class="{tailwindify(['w', 'h'], size)}"></div>
 ```
 
 ```html
@@ -311,7 +311,7 @@ import { tailwindify } from 'tailwindify-props';
 export let size = '24|40';
 </script>
 
-<div class="{tailwindify(['w', 'h'], padding, 'sm')}"></div>
+<div class="{tailwindify(['w', 'h'], size, 'sm')}"></div>
 ```
 
 ```html
