@@ -12,7 +12,6 @@ To get types intellisense in your editor, you might need to add the following to
 ```json
 "compilerOptions": {
 	"moduleResolution": "Bundler"
-	// TODO: "strict": true,
 }
 ```
 
