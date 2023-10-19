@@ -9,7 +9,8 @@
 	"scripts": {
 		"build": "rm -fr dist/* && tsc",
 		"test": "vitest run",
-		"test:watch": "vitest"
+		"test:watch": "vitest",
+		"prepack": "npm run build"
 	},
 	"repository": {
 		"type": "git",
