@@ -43,8 +43,6 @@ Then in your component, you can have props like this:
 
 ```svelte
 <script>
-	import { tailwindify } from 'tailwindify-props';
-
 	export let text = 'blue-500';
 </script>
 
@@ -83,8 +81,6 @@ It also works with javascript/typescript objects and constants:
 
 ```svelte
 <script lang="ts">
-	import { tailwindify } from 'tailwindify-props';
-
 	type ButtonStyle = {
 		bg: 'black' | 'red';
 		text: 'white' | 'blue';
