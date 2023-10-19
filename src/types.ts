@@ -10,7 +10,7 @@ export type ExtractedTailwindifiedProps = Record<string, ExtractedTailwindifiedP
 export type Screen = string;
 
 export type Config = {
-	replacers: Replacers;
+	replacers?: Replacers;
 	defaultScreen?: Screen;
 };
 
