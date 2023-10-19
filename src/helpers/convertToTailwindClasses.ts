@@ -2,6 +2,8 @@ import { BASE_REPLACER } from '../constants';
 import { Screen, Replacers } from '../types';
 import { generateClassesFromValues } from './generateClassesFromValues';
 
+const DISALLOWED_ATTRIBUTES = ['class', 'style'];
+
 const RESP_ATTR_REGEXP = /(?<attribute>[a-zA-Z0-9]+)="(?<values>[^"]+)"/g;
 
 /**
@@ -25,6 +27,9 @@ export const convertToTailwindClasses = (
 			attribute: string;
 			values: string;
 		};
+		if (DISALLOWED_ATTRIBUTES.includes(attribute)) {
+			return match;
+		}
 		if (!values) {
 			return match;
 		}
