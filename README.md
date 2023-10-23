@@ -144,6 +144,7 @@ type Config = {
 		[key: string]: string | (value: string, prop: string) => string;
 	};
 	defaultScreen?: string;
+	ignoredAttributes?: (string | RegExp)[];
 };
 ```
 
@@ -163,7 +164,7 @@ oftentimes this results in the wrong class name. For exemple, `borderColor` prop
 replacer for `borderColor`.
 
 ```js
-module.exports = {
+export default {
 	content: {
 		transform: {
 			svelte: svelte({
@@ -179,7 +180,7 @@ module.exports = {
 You can even use custom values and multiple classes for the same prop name.
 
 ```js
-module.exports = {
+export default {
 	content: {
 		transform: {
 			svelte: svelte({
@@ -196,7 +197,7 @@ If you need more customization, you can pass a function instead. The function re
 the prop key as arguments and must return a string.
 
 ```js
-module.exports = {
+export default {
 	content: {
 		transform: {
 			svelte: svelte({
@@ -242,11 +243,30 @@ If you find yourself often using the same screen prefix, you can omit it.
 The default screen prefix is `xs`, but you can customize it in your Tailwind config:
 
 ```js
-module.exports = {
+export default {
 	content: {
 		transform: {
 			svelte: svelte({
 				defaultScreen: 'sm'
+			})
+		}
+	}
+};
+```
+
+### Ignored attributes
+
+Since the `transform` functions rewrite the code to generate the classes, some attributes may want
+to be ignored. The `class` attribute is always ignored by default, otherwise it would modify
+perfectly valid classes and Tailwind would not identify them. You can add other attributes to
+ignore, using either a string or a `RegExp`.
+
+```js
+export default {
+	content: {
+		transform: {
+			svelte: svelte({
+				ignoredAttributes: ['klass', 'className', /ignore/gi]
 			})
 		}
 	}
