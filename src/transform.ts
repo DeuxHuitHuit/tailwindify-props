@@ -9,6 +9,7 @@ import { convertToTailwindClasses } from './helpers/convertToTailwindClasses';
 const transform: Transform = (config) => {
 	const configReplacers = config?.replacers || {};
 	const defaultScreen = config?.defaultScreen || DEFAULT_SCREEN;
+	const ignoredAttributes = config?.ignoredAttributes || [];
 	return (content) => {
 		// Extract prop names from tailwindify
 		const props = extractTailwindifiedProps(content);
@@ -19,7 +20,12 @@ const transform: Transform = (config) => {
 		// Convert JavaScript object keys into attributes
 		content = resolveJavaScriptObjectAttributesValues(content);
 		// Pass all converters on the resulting string
-		content = convertToTailwindClasses(content, replacers, defaultScreen);
+		content = convertToTailwindClasses({
+			content,
+			replacers,
+			defaultScreen,
+			ignoredAttributes
+		});
 		return content;
 	};
 };

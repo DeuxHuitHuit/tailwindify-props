@@ -9,9 +9,14 @@ export type ExtractedTailwindifiedProps = Record<string, ExtractedTailwindifiedP
 
 export type Screen = string;
 
+export type IgnoredAttribute = string | RegExp;
+
+export type IgnoredAttributes = IgnoredAttribute[];
+
 export type Config = {
 	replacers?: Replacers;
 	defaultScreen?: Screen;
+	ignoredAttributes?: IgnoredAttributes;
 };
 
 export type Transform = (config?: Config) => TransformFn;

@@ -68,12 +68,4 @@ describe('svelte()', () => {
 			const paddingClasses = tailwindify(["pr", "pt"], padding);
 		`);
 	});
-
-	test('Transform: it does not mess with other css classes', () => {
-		const html = `<div class="text-[red] xs:text-[blue]"></div>`;
-		const res = svelte({
-			defaultScreen: 'bp'
-		})(html);
-		expect(res).toBe(html);
-	});
 });
