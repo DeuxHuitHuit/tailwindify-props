@@ -69,7 +69,7 @@ describe('svelte()', () => {
 		`);
 	});
 
-	test('Transform: it does not mess with other css classes', () => {
+	test('Transform: it does not modify ignored attributes', () => {
 		const html = `<div class="text-[red] xs:text-[blue]"></div>`;
 		const res = svelte({
 			defaultScreen: 'bp'
