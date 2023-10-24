@@ -1,4 +1,4 @@
-import { Transform } from './types';
+import type { Transform } from 'tailwindify-props/types';
 import { DEFAULT_SCREEN } from './constants';
 import { extractTailwindifiedProps } from './helpers/extractTailwindifiedProps';
 import { mergeUnknownPropsIntoReplacers } from './helpers/mergeUnknownPropsIntoReplacers';

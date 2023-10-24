@@ -1,4 +1,4 @@
-import { ExtractedTailwindifiedProps, Replacers } from '../types';
+import type { ExtractedTailwindifiedProps, Replacers } from 'tailwindify-props/types';
 
 /**
  * Merges props into the global replacer dictionary.

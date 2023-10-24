@@ -1,4 +1,4 @@
-import { Screen, Replacer } from './types';
+import type { Screen, Replacer } from 'tailwindify-props/types';
 
 export const DEFAULT_SCREEN: Screen = 'xs';
 

@@ -1,5 +1,5 @@
+import type { Screen, Replacers, IgnoredAttributes } from 'tailwindify-props/types';
 import { BASE_REPLACER } from '../constants';
-import { Screen, Replacers, IgnoredAttributes } from '../types';
 import { generateClassesFromValues } from './generateClassesFromValues';
 
 type Params = {

@@ -1,4 +1,4 @@
-import { Screen } from '../types';
+import type { Screen } from 'tailwindify-props/types';
 
 type Values = string;
 type GetSingleValue = (value: string) => string;

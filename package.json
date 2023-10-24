@@ -1,12 +1,19 @@
 {
 	"name": "tailwindify-props",
-	"version": "2.0.6",
+	"version": "2.0.7",
 	"type": "module",
 	"exports": {
-		".": "./dist/tailwindify.js",
-		"./transform": "./dist/transform.js",
-		"./types": "./dist/types.d.ts"
+		"./package.json": "./package.json",
+		".": {
+			"types": "./dist/types.d.ts",
+			"import": "./dist/tailwindify.js"
+		},
+		"./transform": {
+			"types": "./dist/types.d.ts",
+			"import": "./dist/transform.js"
+		}
 	},
+	"types": "./dist/types.d.ts",
 	"scripts": {
 		"build": "rm -fr dist/* lib/* && tsc && rollup -c",
 		"test": "vitest run",

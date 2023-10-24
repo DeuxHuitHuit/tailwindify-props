@@ -1,12 +1,8 @@
-import { Screen } from './types';
+import type { Tailwindify } from 'tailwindify-props/types';
 import { DEFAULT_SCREEN } from './constants';
 import { generateClassesFromValues } from './helpers/generateClassesFromValues';
 
-export const tailwindify = (
-	classPrefix: string | string[],
-	values: string,
-	defaultScreen: Screen = DEFAULT_SCREEN
-) => {
+export const tailwindify: Tailwindify = (classPrefix, values, defaultScreen = DEFAULT_SCREEN) => {
 	return generateClassesFromValues(
 		values,
 		(value) => {
