@@ -6,11 +6,11 @@
 		"./package.json": "./package.json",
 		".": {
 			"types": "./dist/types.d.ts",
-			"import": "./dist/tailwindify.js"
+			"default": "./dist/tailwindify.js"
 		},
 		"./transform": {
 			"types": "./dist/types.d.ts",
-			"import": "./dist/transform.js"
+			"default": "./dist/transform.js"
 		}
 	},
 	"types": "./dist/types.d.ts",
